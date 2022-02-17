@@ -16,7 +16,7 @@ const Header = (props) => {
                     alt="logo"
                     ></img></a>
                     
-                    <h2 style= {{marginLeft:10,color:'black',fontSize:20,backgroundColor:'white',padding:10}}>Book an Appointment</h2>
+                    <h2 style= {{color:'black',fontSize:20,backgroundColor:'white',padding:10}}>Book an Appointment</h2>
                     
                 </div>
                 <ul >
