@@ -8,26 +8,29 @@ const Header = (props) => {
         <header className="main-head" >
             <nav>
                 {/* <h1 id="logo">AMITA</h1> */}
-                <h1 id='logo'>
+                <div id='logo' style={{display:'flex',justifyContent:'space-around',alignItems:'center',flexDirection:'row',
+                }}>
                     <a href="https://amitacare.github.io/source/">
                     <img src='https://www.amitacare.com/wp-content/uploads/2021/10/cropped-image-144x66.png'
                     style={{backgroundColor:'red',paddingLeft:20}}
                     alt="logo"
-                    ></img>
-                    </a>
-                </h1>
+                    ></img></a>
+                    
+                    <h2 style= {{marginLeft:10,color:'black',fontSize:20,backgroundColor:'white',padding:10}}>Book an Appointment</h2>
+                    
+                </div>
                 <ul >
                     <li >
-                        <Link to="/" /* style={{color:'black'}} */>Home</Link>
+                        <Link to="/backend/" /* style={{color:'black'}} */>Home</Link>
                     </li>
                     <li>
-                        <Link to="/books" /* style={{color:'black'}} */>Books</Link>
+                        <Link to="/backend/doctors" /* style={{color:'black'}} */>Doctors</Link>
                     </li>
                     <li>
-                        <Link to="/cart" /* style={{color:'black'}} */>Cart</Link>
+                        <Link to="/backend/cart" /* style={{color:'black'}} */>Cart</Link>
                     </li>
                     <li>
-                        <Link to="/checkout" >Checkout</Link>
+                        <Link to="/backend/checkout" >Checkout</Link>
                     </li>
                     <Button onClick={props.signOut} style={{
                         backgroundColor:"#5546b8",padding:10,color:'white',

@@ -11,15 +11,18 @@ const Books = () => {
     }
 
     return (
-        <section className="books">
+        <section className="books"style={{flexDirection:'column'}}>
+            <h2 >All Doctors</h2>
+            <>
             {books.map(({ image: image, id, name }) => (
                 <article key={id} className="book">
                     <div className="book-image">
                         <img src={image} alt={name} />
                     </div>
-                    <Link to={`/backend/books/${id}`} className="btn book-link">details</Link>
+                    <Link to={`/backend/doctors/${id}`} className="btn book-link">details</Link>
                 </article>
             ))}
+            </>
         </section>
     )
 }

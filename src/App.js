@@ -1,6 +1,8 @@
 import React from 'react';
 //import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // Amplify
 import { Amplify } from 'aws-amplify';
 
@@ -46,6 +48,8 @@ const App = () => {
   //const [mobile, setmobile] = useState("");
   //const [isError, setIsError] = useState(false);
   //const { user } = useAuthenticator(context => [context.user]);
+  //const history = useHistory();
+
   var v=false
   var userh=false
   //const { user, signOut } = useAuthenticator((context) => [context.user]);
@@ -191,11 +195,11 @@ const App = () => {
               <Route path="/backend/checkout">
                 <Checkout />
               </Route>
-              <Route exact path="/backend/books">
+              <Route exact path="/backend/doctors">
                 <Books />
               </Route>
               <Route
-                path="/backend/books/:id"
+                path="/backend/doctors/:id"
                 children={<BookDetails></BookDetails>}>
               </Route>
               <Route path="/backend/admin">
@@ -203,6 +207,9 @@ const App = () => {
               </Route>
               <Route path="/backend/update_doctor">
                 <Admin user={user}/>
+              </Route>
+              <Route path="/">
+              <Redirect to="/backend" />
               </Route>
               <Route path="*">
                 <Error />

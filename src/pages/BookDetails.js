@@ -21,13 +21,25 @@ const BookDetails = () => {
   return (
     <section className="book-details">
       <div className="detail-image">
-        <img src={url} alt="10x Rule" />
+        <img src={url} alt="image" />
       </div>
-      <div className="detail-description">
-        <h2>{name}</h2>
-        <p>{experience}</p>
-        <h3>{speciality}</h3>
-        <h4>Price - &#8377; {price}</h4>
+      <div className="detail-description" style={{backgroundColor:'white',textAlign:'left'}}>
+      
+        <div style={{display:'flex',width:'100%',flexDirection:'row',backgroundColor:'yellow',padding:2}}>
+          <div style={{backgroundColor:'white',textAlign:'justify',width:'100%',paddingLeft:20}}>
+            <h3>Name:</h3>
+            <h3>Experience:</h3>
+            <h3>Speciality:</h3>
+            
+          </div>
+          <div style={{backgroundColor:'white',textAlign:'justify',width:'100%',}}>
+            <h3>Dr. {name}</h3>
+            <h3>{experience}</h3>
+            <h3>{speciality}</h3>
+            
+          </div>
+        </div>
+        <h4>Price:&nbsp;&nbsp;  &#8377;{price}</h4>
         <button
           className="btn"
           onClick={() => {
@@ -35,7 +47,7 @@ const BookDetails = () => {
             history.push("/backend/cart");
           }}
         >
-          Add to Cart
+          <h4>Add to Cart</h4>
         </button>
       </div>
     </section>
