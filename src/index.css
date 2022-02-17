@@ -74,13 +74,18 @@ nav {
   align-items: center;
   min-height: 10vh;
   padding: 0.5vh;
+
   width: 90%;
-  margin: auto;
+  margin-Left: 2.5%;
+  width: 95%;
+  padding-top: 0.8vh;
+
+
 }
 
 nav ul {
   display: flex;
-  flex: 1 1 40rem;
+  flex: 40%;
   justify-content: space-around;
   align-items: center;
   list-style: none;

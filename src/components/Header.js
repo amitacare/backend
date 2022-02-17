@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@aws-amplify/ui-react';
-
+import HomeIcon from '@mui/icons-material/Home';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Header = (props) => {
     console.log(props.user)
     return (
@@ -16,25 +17,29 @@ const Header = (props) => {
                     alt="logo"
                     ></img></a>
                     
-                    <h2 style= {{color:'black',fontSize:20,backgroundColor:'white',padding:10}}>Book an Appointment</h2>
+                    <h2 style= {{marginLeft:10,color:'black',fontSize:20,backgroundColor:'white',padding:10}}>Book an Appointment</h2>
                     
                 </div>
                 <ul >
                     <li >
-                        <Link to="/backend/" /* style={{color:'black'}} */>Home</Link>
+                        <Link to="/backend/"  style={{display:'flex',flexDirection:'row' }} >
+                            <HomeIcon fontSize='inherit' style={{fontSize:28,}}></HomeIcon>
+                            <p>Home</p>
+                        </Link>
                     </li>
+                    
                     <li>
-                        <Link to="/backend/doctors" /* style={{color:'black'}} */>Doctors</Link>
+                        <Link to="/backend/cart" style={{display:'flex',flexDirection:'row' }}>
+                        <ShoppingCartIcon fontSize='inherit' style={{fontSize:28,}}></ShoppingCartIcon>
+                            <p>Cart</p>
+                            </Link>
                     </li>
-                    <li>
-                        <Link to="/backend/cart" /* style={{color:'black'}} */>Cart</Link>
-                    </li>
-                    <li>
+                    {/* <li>
                         <Link to="/backend/checkout" >Checkout</Link>
-                    </li>
+                    </li> */}
                     <Button onClick={props.signOut} style={{
                         backgroundColor:"#5546b8",padding:10,color:'white',
-                        borderRadius:15,paddingLeft:20,paddingRight:20,
+                        borderRadius:15,paddingLeft:20,paddingRight:20,marginBottom:5,
                         width:'auto',fontSize:20,
                         }}>Sign out</Button>
 
