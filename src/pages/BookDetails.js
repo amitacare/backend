@@ -16,7 +16,7 @@ const BookDetails = () => {
     return <h3>Loading...</h3>;
   }
 
-  const { image: url, title, description, author, price } = book;
+  const { image: url, name,experience,speciality, price } = book;
 
   return (
     <section className="book-details">
@@ -24,15 +24,15 @@ const BookDetails = () => {
         <img src={url} alt="10x Rule" />
       </div>
       <div className="detail-description">
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <h3>{author}</h3>
-        <h4>Price - $ {price}</h4>
+        <h2>{name}</h2>
+        <p>{experience}</p>
+        <h3>{speciality}</h3>
+        <h4>Price - &#8377; {price}</h4>
         <button
           className="btn"
           onClick={() => {
             addToCart({ ...book, id });
-            history.push("/cart");
+            history.push("/backend/cart");
           }}
         >
           Add to Cart

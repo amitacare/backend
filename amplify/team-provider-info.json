@@ -1,0 +1,35 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bookappointment-dev-155246-authRole",
+      "UnauthRoleArn": "arn:aws:iam::701378600811:role/amplify-bookappointment-dev-155246-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::701378600811:role/amplify-bookappointment-dev-155246-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-bookappointment-dev-155246-deployment",
+      "UnauthRoleName": "amplify-bookappointment-dev-155246-unauthRole",
+      "StackName": "amplify-bookappointment-dev-155246",
+      "StackId": "arn:aws:cloudformation:ap-south-1:701378600811:stack/amplify-bookappointment-dev-155246/169226d0-8d80-11ec-8371-02e89b1e31f0",
+      "AmplifyAppId": "d3kpi48dd3lp5z"
+    },
+    "categories": {
+      "auth": {
+        "bookappointment9d705156": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "processPayment": {
+          "deploymentBucketName": "amplify-bookappointment-dev-155246-deployment",
+          "s3Key": "amplify-builds/processPayment-784556566c4242436d52-build.zip"
+        },
+        "createBooking": {
+          "deploymentBucketName": "amplify-bookappointment-dev-155246-deployment",
+          "s3Key": "amplify-builds/createBooking-6a4835355574744a4453-build.zip"
+        },
+        "AdminQueries8248ac6d": {
+          "deploymentBucketName": "amplify-bookappointment-dev-155246-deployment",
+          "s3Key": "amplify-builds/AdminQueries8248ac6d-4737314a5a326d506f42-build.zip"
+        }
+      }
+    }
+  }
+}

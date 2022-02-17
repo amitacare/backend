@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "bookappointment",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\abhip\\OneDrive\\Desktop\\miniproject\\miniproject4\\appointment\\book\\amplify\\backend\\api\\bookappointment\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authbookappointment9d705156"
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": [
+      {
+        "mode": "API_KEY",
+        "expirationTime": 365,
+        "apiKeyExpirationDate": "2023-02-16T21:01:21.112Z",
+        "keyDescription": "api for graphql"
+      }
+    ]
+  }
+}

@@ -62,9 +62,11 @@ a {
 /* Nav Section */
 
 .main-head {
-  background: #131c27;
+  background: #7d6bf2;
   color: white;
 }
+
+
 
 nav {
   display: flex;
@@ -86,7 +88,7 @@ nav ul {
 
 #logo {
   flex: 2 1 40rem;
-  font-family: 'Pattaya', sans-serif;
+  flex-direction: row;
   font-weight: 400;
 }
 

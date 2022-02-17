@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { API, graphqlOperation, Storage } from "aws-amplify";
-import { AmplifyAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
-import { createBook } from '../api/mutations'
+//import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import { createDoctor,updateDoctor } from '../api/mutations'
 import config from '../aws-exports'
 
 const {
@@ -11,18 +12,37 @@ const {
 } = config
 
 
-const Admin = () => {
+const Admin = (props) => {
     const [image, setImage] = useState(null);
-    const [bookDetails, setBookDetails] = useState({ title: "", description: "", image: "", author: "", price: "" });
+    var now=new Date();
+    //console.log(now);
+    const [bookDetails, setBookDetails] = useState({
+        id:props.user.attributes.sub,
+        name:props.user.attributes.name,
+        experience:"",
+        image:"",
+        speciality:'',
+        featured:true,
+        price:100,
+        
+    });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (!bookDetails.title || !bookDetails.price) return
-            await API.graphql(graphqlOperation(createBook, { input: bookDetails }))
-            setBookDetails({ title: "", description: "", image: "", author: "", price: "" })
+            if ( !bookDetails.price) return
+            await API.graphql(graphqlOperation(createDoctor, { input: bookDetails }))
+            setBookDetails({
+                id:'',
+                name:'',
+            experience:"",
+            image:"",
+            speciality:'',
+            featured:true,
+            price:100 })
+            console.log(bookDetails)
         } catch (err) {
-            console.log('error creating todo:', err)
+            console.log('error creating updatedoctor:', err)
         }
     }
 
@@ -50,13 +70,19 @@ const Admin = () => {
 
     return (
         <section className="admin-wrapper">
-            <AmplifyAuthenticator>
+            
                 <section>
-                    <header className="form-header">
-                        <h3>Add New Book</h3>
-                        <AmplifySignOut></AmplifySignOut>
+                    
+                    <header className="form-header" style={{marginTop:-50}}>
+                        <h3>Update Doctor Profile</h3>
                     </header>
+                    
                     <form className="form-wrapper" onSubmit={handleSubmit}>
+                        <div style={{flexDirection:'column',width:'100%',textAlign:'Left',marginLeft:'50%'}}>
+                            <div style={{fontSize:20}}>Name: Dr.{props.user.attributes.name}</div>
+                            <div style={{fontSize:20}}>ID: {props.user.attributes.sub}</div>
+                        </div>
+
                         <div className="form-image">
                             {image ? <img className="image-preview" src={image} alt="" /> : <input
                                 type="file"
@@ -66,43 +92,46 @@ const Admin = () => {
                         </div>
                         <div className="form-fields">
                             <div className="title-form">
-                                <p><label htmlFor="title">Title</label></p>
+                                <p><label htmlFor="experience">Experience</label></p>
                                 <p><input
                                     name="email"
                                     type="title"
-                                    placeholder="Type the title"
-                                    onChange={(e) => setBookDetails({ ...bookDetails, title: e.target.value })}
+                                    placeholder="Type the experience"
+                                    onChange={(e) => setBookDetails({ ...bookDetails, experience: e.target.value })}
                                     required
                                 /></p>
                             </div>
                             <div className="description-form">
-                                <p><label htmlFor="description">Description</label></p>
+                                <p><label htmlFor="speciality">Speciality</label></p>
                                 <p><textarea
                                     name="description"
-                                    type="text"
+                                    type="number"
                                     rows="8"
-                                    placeholder="Type the description of the book"
-                                    onChange={(e) => setBookDetails({ ...bookDetails, description: e.target.value })}
+                                    placeholder="Type the speciality in which fields"
+                                    onChange={(e) => setBookDetails({ ...bookDetails, speciality: e.target.value })}
                                     required
                                 /></p>
                             </div>
-                            <div className="author-form">
-                                <p><label htmlFor="author">Author</label></p>
-                                <p><input
-                                    name="author"
-                                    type="text"
-                                    placeholder="Type the author's name"
-                                    onChange={(e) => setBookDetails({ ...bookDetails, author: e.target.value })}
-                                    required
-                                /></p>
-                            </div>
+                            
                             <div className="price-form">
-                                <p><label htmlFor="price">Price ($)</label>
+                                <p><label htmlFor="price">Price (&#8377;)</label>
                                     <input
                                         name="price"
                                         type="text"
-                                        placeholder="What is the Price of the book (USD)"
-                                        onChange={(e) => setBookDetails({ ...bookDetails, price: e.target.value })}
+                                        placeholder="What is the Price of one booking (INR)"
+                                        onChange={(e) => 
+                                            {
+                                                console.log(e.target.value)
+                                                if(/[^0-9]/g.test(e.target.value))
+                                                {
+                                                setBookDetails({ ...bookDetails, price: 1000 })
+                                                    e.target.value=e.target.value.slice(0,-1)
+                                                    console.log("Not a number")
+                                                }
+                                                else{
+                                                setBookDetails({ ...bookDetails, price: e.target.value })
+                                                }
+                                        }}
                                         required
                                     /></p>
                             </div>
@@ -111,7 +140,11 @@ const Admin = () => {
                                     <input type="checkbox"
                                         className="featured-checkbox"
                                         checked={bookDetails.featured}
-                                        onChange={() => setBookDetails({ ...bookDetails, featured: !bookDetails.featured })}
+                                        onChange={() => {
+                                            
+                                            setBookDetails({ ...bookDetails, featured: !bookDetails.featured })
+                                        
+                                        }}
                                     />
                                 </p>
                             </div>
@@ -121,7 +154,7 @@ const Admin = () => {
                         </div>
                     </form>
                 </section>
-            </AmplifyAuthenticator>
+            
         </section>
     )
 }
