@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/backend/static/css/main.cc574f85.chunk.css",
-    "main.js": "/backend/static/js/main.7bb7a3cb.chunk.js",
-    "main.js.map": "/backend/static/js/main.7bb7a3cb.chunk.js.map",
+    "main.css": "/backend/static/css/main.ce784bcb.chunk.css",
+    "main.js": "/backend/static/js/main.f79abe11.chunk.js",
+    "main.js.map": "/backend/static/js/main.f79abe11.chunk.js.map",
     "runtime-main.js": "/backend/static/js/runtime-main.ea34169d.js",
     "runtime-main.js.map": "/backend/static/js/runtime-main.ea34169d.js.map",
     "static/css/2.57ec547b.chunk.css": "/backend/static/css/2.57ec547b.chunk.css",
     "static/js/2.2d901d0a.chunk.js": "/backend/static/js/2.2d901d0a.chunk.js",
     "static/js/2.2d901d0a.chunk.js.map": "/backend/static/js/2.2d901d0a.chunk.js.map",
     "index.html": "/backend/index.html",
-    "precache-manifest.b6604a05731d30125015d200851d435a.js": "/backend/precache-manifest.b6604a05731d30125015d200851d435a.js",
+    "precache-manifest.a8cbe08fd363dff0a0dcbaee39397d71.js": "/backend/precache-manifest.a8cbe08fd363dff0a0dcbaee39397d71.js",
     "service-worker.js": "/backend/service-worker.js",
     "static/css/2.57ec547b.chunk.css.map": "/backend/static/css/2.57ec547b.chunk.css.map",
-    "static/css/main.cc574f85.chunk.css.map": "/backend/static/css/main.cc574f85.chunk.css.map",
+    "static/css/main.ce784bcb.chunk.css.map": "/backend/static/css/main.ce784bcb.chunk.css.map",
     "static/js/2.2d901d0a.chunk.js.LICENSE.txt": "/backend/static/js/2.2d901d0a.chunk.js.LICENSE.txt",
     "static/media/index.css": "/backend/static/media/amita-back.2849425a.jpg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.ea34169d.js",
     "static/css/2.57ec547b.chunk.css",
     "static/js/2.2d901d0a.chunk.js",
-    "static/css/main.cc574f85.chunk.css",
-    "static/js/main.7bb7a3cb.chunk.js"
+    "static/css/main.ce784bcb.chunk.css",
+    "static/js/main.f79abe11.chunk.js"
   ]
 }
