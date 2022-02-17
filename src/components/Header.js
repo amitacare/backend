@@ -12,7 +12,7 @@ const Header = (props) => {
                 }}>
                     <a href="https://amitacare.github.io/source/">
                     <img src='https://www.amitacare.com/wp-content/uploads/2021/10/cropped-image-144x66.png'
-                    style={{backgroundColor:'red',paddingLeft:20}}
+                    style={{backgroundColor:'red',paddingLeft:10}}
                     alt="logo"
                     ></img></a>
                     
