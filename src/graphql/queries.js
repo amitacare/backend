@@ -22,7 +22,6 @@ export const getOrder = /* GraphQL */ `
       createdAt
       updatedAt
       customer
-      owner
     }
   }
 `;
@@ -44,7 +43,6 @@ export const listOrders = /* GraphQL */ `
         createdAt
         updatedAt
         customer
-        owner
       }
       nextToken
     }

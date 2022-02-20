@@ -7,9 +7,9 @@ import {listCustomOrders,listOrders,listDoctors} from '../api/queries'
 function Orders() {
     const orders = async ()=>{
         try{
-            const alldoctors = await API.graphql({ query: listDoctors,authMode:'AMAZON_COGNITO_USER_POOLS' });
+            const alldoctors = await API.graphql({ query: listDoctors });
             console.log('alldoctors',alldoctors); 
-        const allorders = await API.graphql({ query: listOrders
+        const allorders = await API.graphql({ query: listCustomOrders,authMode:'AMAZON_COGNITO_USER_POOLS'
         
     });
         console.log('allorders',allorders); 
