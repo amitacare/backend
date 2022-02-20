@@ -19,7 +19,7 @@
       "function": {
         "processPayment": {
           "deploymentBucketName": "amplify-bookappointment-dev-155246-deployment",
-          "s3Key": "amplify-builds/processPayment-784556566c4242436d52-build.zip"
+          "s3Key": "amplify-builds/processPayment-4670586d613664356171-build.zip"
         },
         "createBooking": {
           "deploymentBucketName": "amplify-bookappointment-dev-155246-deployment",

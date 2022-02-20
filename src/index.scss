@@ -1,0 +1,467 @@
+// HTML font size can define checkbox size
+ 
+/* html,
+body {
+	font-size: 10px;
+}  */
+.fontk{
+	font-size: 20px;
+
+}
+
+// Sample container
+.main-container {
+	width: 100%;
+	height: 50vh;
+	font-size: 30px;
+
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+    
+}
+
+// Main CSS
+.check-container {
+	width: 7rem;
+	height: 8rem;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: space-between;
+
+	.check-background {
+		width: 100%;
+		height: calc(100% - 1.2rem);
+		background: linear-gradient(to bottom right, #5de593, #41d67c);
+		box-shadow: 0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset;
+		transform: scale(0.84);
+		border-radius: 50%;
+		animation: animateContainer 0.75s ease-out forwards 0.75s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+    padding-top:10%;
+		svg {
+			width: 65%;
+			transform: translateY(0.25rem);
+			stroke-dasharray: 80;
+			stroke-dashoffset: 80;
+			animation: animateCheck 0.35s forwards 1.25s ease-out;
+		}
+	}
+	.check-background2 {
+		width: 100%;
+		height: calc(100% - 1.25rem);
+		box-shadow: 0px 0px 0px 65px rgba(63, 16, 16, 0.5) inset,
+			0px 0px 0px 65px rgba(70, 21, 21, 0.5) inset;
+		transform: scale(0.84);
+		border-radius: 50%;
+		animation: animateContainer 0.75s ease-out forwards 0.75s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+
+		svg {
+			width: 60%;
+			transform: translateY(0.25rem);
+			stroke-dasharray: 50;
+			stroke-dashoffset: 100;
+			animation: animateCheck 0.35s forwards 1.25s ease-out;
+		}
+	}
+
+	.check-shadow {
+		bottom: calc(-15% - 5px);
+		left: 0;
+		border-radius: 50%;
+		background: radial-gradient(closest-side, rgba(73, 218, 131, 1), transparent);
+		animation: animateShadow 0.75s ease-out forwards 0.75s;
+	}
+	.check-shadow2 {
+		bottom: calc(-15% - 5px);
+		left: 0;
+		border-radius: 50%;
+		background: radial-gradient(closest-side, rgb(129, 24, 24), transparent);
+		animation: animateShadow 0.75s ease-out forwards 0.75s;
+	}
+}
+
+@keyframes animateContainer {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+		box-shadow: 0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset;
+	}
+	25% {
+		opacity: 1;
+		transform: scale(0.9);
+		box-shadow: 0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset;
+	}
+	43.75% {
+		transform: scale(1.15);
+		box-shadow: 0px 0px 0px 43.334px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 65px rgba(255, 255, 255, 0.25) inset;
+	}
+	62.5% {
+		transform: scale(1);
+		box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 21.667px rgba(255, 255, 255, 0.25) inset;
+	}
+	81.25% {
+		box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 0px rgba(255, 255, 255, 0.25) inset;
+	}
+	100% {
+		opacity: 1;
+		box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.25) inset,
+			0px 0px 0px 0px rgba(255, 255, 255, 0.25) inset;
+	}
+}
+
+@keyframes animateCheck {
+	from {
+		stroke-dashoffset: 80;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes animateShadow {
+	0% {
+		opacity: 0;
+		width: 100%;
+		height: 15%;
+	}
+	25% {
+		opacity: 0.25;
+	}
+	43.75% {
+		width: 40%;
+		height: 7%;
+		opacity: 0.35;
+	}
+	100% {
+		width: 85%;
+		height: 15%;
+		opacity: 0.25;
+	}
+}
+
+
+
+
+//success
+$white: #FCFCFC;
+$gray: #CBCDD3;
+$dark: #777777;
+$error: #EF8D9C;
+$orange: #FFC39E;
+$success: #B0DB7D;
+$secondary: #99DBB4;
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+$font: 'Lato', sans-serif;
+
+.sfhtml {
+  width: 900 px;
+}
+
+.sfbody {
+  display: grid;
+  overflow: hidden;
+  font-family: $font;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#sfcontainer {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  
+  height: 250px;
+}
+
+.sfh1 {
+  font-size: 0.9em;
+  font-weight: 100;
+  letter-spacing: 3px;
+  padding-top: 5px;
+  color: $white;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.sfgreen {
+  color: darken($secondary, 20%);
+}
+
+.sfred {
+  color: darken($error, 10%);
+}
+
+.sfalert {
+  font-weight: 700;
+  letter-spacing: 5px;
+}
+
+.sfp {
+  margin-top: -5px;
+  font-size: 0.5em;
+  font-weight: 100;
+  color: darken($dark, 10%);
+  letter-spacing: 1px;
+}
+
+.sfbutton, .sfdot {
+  cursor: pointer;
+}
+
+#sfsuccess-box {
+  
+  
+  height: 100%;
+  
+  background: linear-gradient(to bottom right, $success 40%, $secondary 100%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba($gray, 10%);
+  perspective: 40px;
+}
+
+#sferror-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  background: linear-gradient(to bottom left, $error 40%, $orange 100%);
+  border-radius: 20px;
+  box-shadow: 5px 5px 20px rgba($gray, 10%);
+}
+
+.sfdot {
+  width: 8px;
+  height: 8px;
+  background: $white;
+  border-radius: 50%;
+  position: absolute;
+  top: 4%;
+  right: 6%;
+  &:hover {
+    background: darken($white, 20%);
+  }
+}
+
+.sftwo {
+  right: 12%;
+  opacity: .5;
+}
+
+.sfface {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  background: $white;
+  border-radius: 50%;
+  border: 1px solid $dark;
+  top: 21%;
+  left: 37.5%;
+  z-index: 2;
+  
+}
+
+.sfface2 {
+  position: absolute;
+  width: 22%;
+  height: 22%;
+  background: $white;
+  border-radius: 50%;
+  border: 1px solid $dark;
+  top: 21%;
+  left: 37.5%;
+  z-index: 2;
+  animation: sfroll 3s ease-in-out infinite;
+}
+
+.sfeye {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: $dark;
+  border-radius: 50%;
+  top: 40%;
+  left: 20%;
+}
+
+.sfright {
+  left: 68%;
+}
+
+.sfmouth {
+  position:absolute;
+  top: 43%;
+  left: 41%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.sfhappy {
+  border: 2px solid;
+  border-color: transparent $dark $dark transparent;
+  transform: rotate(45deg);
+}
+
+.sfsad {
+  top: 49%;
+  border: 2px solid;
+  border-color: $dark transparent transparent $dark;
+  transform: rotate(45deg);
+}
+
+.sfshadow {
+  position: absolute;
+  width: 21%;
+  height: 3%;
+  opacity: .5;
+  background: $dark;
+  left: 40%;
+  top: 43%;
+  border-radius: 50%;
+  z-index: 1;
+}
+.sfshadow2 {
+	position: relative;
+	width: 4%;
+	height: 4%;
+	opacity: .5;
+	background: $dark;
+	
+	
+	border-radius: 50%;
+	z-index: 1;
+  }
+
+.sfbounce{
+	animation: sfbounce 1s ease-in infinite;
+}
+.sfbounce2{
+	animation: sfbounce2 2s ease-in infinite;
+}
+
+.sfscale {
+  animation: sfscale 1s ease-in infinite;
+}
+.sfscale2 {
+	animation: sfscale2 2s ease-in infinite;
+  }
+.sfmove {
+  animation: sfmove 3s ease-in-out infinite;
+}
+
+
+.sfmessage {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height: 40%;
+  top: 47%;
+}
+
+.sfbutton-box {
+  position: absolute;
+  background: $white;
+  width: 50%;
+  height: 15%;
+  border-radius: 20px;
+  top: 73%;
+  left: 25%;
+  outline: 0;
+  border: none;
+  box-shadow: 2px 2px 10px rgba($dark, .5);
+  transition: all .5s ease-in-out;
+  &:hover {
+    background: darken($white, 5%);
+    transform: scale(1.05);
+    transition: all .3s ease-in-out;
+  }
+}
+
+@keyframes sfbounce {
+  50% {
+     transform: translateY(-10px);
+  }
+}
+@keyframes sfbounce2 {
+	50% {
+	   transform: translateY(-2px);
+	}
+  }
+
+@keyframes sfscale2 {
+	70% {
+	  transform: scale(0.8);
+	}
+  }
+@keyframes sfscale {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes sfroll {
+  0% {
+    transform: rotate(0deg);
+    left: 25%;
+  }
+  50% {
+    left: 60%;
+    transform: rotate(168deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    left: 25%;
+  }
+}
+
+@keyframes sfmove {
+  0% {
+    left: 25%;
+  }
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 25%;
+  }
+}
+
+.sffooter {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1em;
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: $font;
+  p {
+    color: $error;
+    letter-spacing: 2px;
+  }
+  a {
+    color: $success;
+    text-decoration: none;
+    &:hover {
+      color: $orange;
+    }
+  }
+}

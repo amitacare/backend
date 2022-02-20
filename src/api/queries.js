@@ -95,6 +95,23 @@ export const listOrders = /* GraphQL */ `
         customer
       }
       nextToken
-    }
+    }   
   }
 `;
+
+export const listCustomOrders = /* GraphQL */ `
+query MyQuery {
+  listOrders {
+    items {
+      createdAt
+      customer
+      date
+      id
+      total
+      updatedAt
+      user
+      
+    }
+  }
+}
+`

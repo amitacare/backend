@@ -9,11 +9,11 @@ const Checkout = () => {
 
 
     return (
-        <section className="checkout-wrapper">
+        <section className="">
             
                 <Elements stripe={stripePromise}>
                     <section>
-                        <h2>Time to Checkout?</h2>
+                        
                         <CheckoutForm />
                     </section>
                 </Elements>

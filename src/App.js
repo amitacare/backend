@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 //import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //import { useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 // Amplify
+import { Auth } from 'aws-amplify';
 import { Amplify } from 'aws-amplify';
-
+//import { Link } from 'react-router-dom';
 import { Authenticator } from '@aws-amplify/ui-react';
 import { PhoneNumberField } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
@@ -26,7 +27,27 @@ import { CheckboxField } from '@aws-amplify/ui-react';
 //import { Flex } from '@aws-amplify/ui-react';
 //import { Button } from '@aws-amplify/ui-react';
 // Components
-import Header from "./components/Header"
+import Header from "./components/Header";
+import AdminSuccess from "./pages/AdminSuccess"
+//import { useParams } from "react-router";
+import UpdateDoctorButton from './components/UpdateDoctorButton.js';
+import UpdateDoctor from './pages/UpdateDoctor'
+import DoctorSuccess from './pages/DoctorSuccess'
+import CheckoutSuccess from './pages/CheckoutSuccess'
+import CheckoutFailed from './pages/CheckoutFailed'
+import Orders from './pages/Orders'
+//var x=true
+
+/* function User() {
+
+  let { id } = useParams();
+  let {url}=useParams();
+  if ({url}==="admin")
+  {
+    x=!x
+  }
+  return <h2>User {id}{url}</h2>;
+} */
 
 Amplify.configure(awsExports);
 I18n.putVocabulariesForLanguage('en', {
@@ -51,11 +72,78 @@ const App = () => {
   //const history = useHistory();
 
   var v=false
-  var userh=false
+  const [userh,setUserh]=useState(true)
   //const { user, signOut } = useAuthenticator((context) => [context.user]);
+/*   useEffect(()=>{
+  const ionViewCanEnter=async()=> {
+    try{
+      console.log('here')
+        var v=await Auth.currentAuthenticatedUser();
+        console.log('dsdsd',v,'dsdsdsd')
+        setUserh(true);
+    } catch{
+      console.log('false')
+      
+      setUserh(false);
+
+    }
+  }
+    ionViewCanEnter()
+},[userh]) */
+  //var userh=true
+  const checkUser=async()=> {
+    try {
+      await Auth.currentAuthenticatedUser();
+      return true;
+  } catch {
+      return false;
+  }
+
+  }
+  console.log('function')
+  
+  var x=Auth.currentAuthenticatedUser().then(user => console.log({ user }))
+.catch(err => console.log(err))
+  useEffect(()=>{
+    const f=()=>{
+      checkUser().then(
+        function(result){
+          // do something with result
+          console.log(result)
+          if (result)
+          {
+            setUserh(true)
+          }
+          else{
+            setUserh(false)
+          }
+        }
+      )
+    } 
+  f()
+  console.log(checkUser())
+ 
+},[x])
+
+
+const reload=()=>
+{
+  Auth.currentAuthenticatedUser().then(user => console.log({ user }))
+  .catch(err => {console.log(err,userh,'er')
+                if(userh)
+                {
+                  
+                  //window.location.reload(true)
+                }
+  })
+  
+
+  
+}
+
   return (
     <>
-    {userh?
+    {false?
     <header className="main-head" style={{marginBottom:50}}>
             <nav>
                 {/* <h1 id="logo">AMITA</h1> */}
@@ -72,10 +160,10 @@ const App = () => {
                         <a href="https://amitacare.github.io/source/">Home</a>
                     </li>
                     <li>
-                        <a href="https://amitacare.github.io/source/">Books</a>
+                        <a href="https://amitacare.github.io/source/">Doctors</a>
                     </li>
                     <li>
-                        <a  href="https://amitacare.github.io/source/">Cart</a>
+                        <a  href="https://amitacare.github.io/source/">Login</a>
                     </li>
                     <li>
                         <a href="https://amitacare.github.io/source/" >Checkout</a>
@@ -89,6 +177,7 @@ const App = () => {
           
         ></>
       }
+      <div className='fontk'>
     <Authenticator
     
     // Default to Sign Up screen
@@ -175,22 +264,39 @@ const App = () => {
         }
       },
     }}
-    
+    style={{}}
     >
       
       {({ signOut, user }) => (
         
         <main>
+          {//(!userh)?
+          //window.location.reload(true):<></>
+          }
           <Router>
             <Header user={user} signOut={signOut}/>
-            <h1 style={{margin:15,marginBottom:50}}>Hello {user.attributes.name}!</h1>
-
+            
+            
             <Switch>
               <Route exact path="/backend/">
+                <UpdateDoctorButton user={user}/>
                 <Home />
               </Route>
               <Route path="/backend/cart">
                 <Cart />
+
+
+              </Route>
+              <Route path="/backend/orders">
+                <Orders />
+
+
+              </Route>
+              <Route path="/backend/checkout/success">
+                < CheckoutSuccess user={user}/>
+              </Route>
+              <Route path="/backend/checkout/failed">
+                < CheckoutFailed user={user}/>
               </Route>
               <Route path="/backend/checkout">
                 <Checkout />
@@ -202,11 +308,20 @@ const App = () => {
                 path="/backend/doctors/:id"
                 children={<BookDetails></BookDetails>}>
               </Route>
+              <Route path="/backend/admin/create-doctor/success">
+                <AdminSuccess user={user}/>
+              </Route>
+              <Route path="/backend/admin/create-doctor">
+                <Admin user={user}/>
+              </Route>
               <Route path="/backend/admin">
                 <Admin user={user} />
               </Route>
-              <Route path="/backend/update_doctor">
-                <Admin user={user}/>
+              <Route path="/backend/doctor/update-profile/success">
+                < DoctorSuccess user={user}/>
+              </Route>
+              <Route path="/backend/doctor/update-profile">
+                <UpdateDoctor user={user}/>
               </Route>
               <Route path="/">
               <Redirect to="/backend" />
@@ -221,6 +336,11 @@ const App = () => {
     </main>
     )}
     </Authenticator>
+    {(userh)?
+          
+          reload()
+          :<></>}
+    </div>
    </>
   );
 }

@@ -23,8 +23,10 @@ const BookProvider = ({ children }) => {
     try {
       await API.graphql(graphqlOperation(processOrder, { input: payload }));
       console.log("Order is successful");
+      return true
     } catch (err) {
       console.log(err);
+      return false
     }
   };
 
@@ -34,7 +36,7 @@ const BookProvider = ({ children }) => {
       // Switch authMode to API_KEY for public access
       const { data } = await API.graphql({
         query: listDoctors,
-        authMode: "AMAZON_COGNITO_USER_POOLS"
+        authMode: "API_KEY"
       });
       const books = data.listDoctors.items;
       const featured = books.filter((book) => {
@@ -47,6 +49,7 @@ const BookProvider = ({ children }) => {
       console.log(err);
     }
   };
+  
 
   return (
     <BookContext.Provider value={{ books, featured, loading, checkout }}>

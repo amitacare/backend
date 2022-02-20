@@ -21,7 +21,7 @@ type Doctor
 
       { allow: private, operations: [read] }
       # allow all guest users (not authenticated) to view books
-       # { allow: public, operations: [read] }
+       { allow: public, operations: [read] }
     ]
   ) {
   id: ID!
@@ -57,9 +57,13 @@ type Order
   @auth(
     rules: [
       # only owner can see his orders
-      { allow: owner, identityClaim: "email", ownerField: "customer" }
+      { allow: owner, identityClaim: "email", ownerField: "customer" ,operations: [create, update, delete, read] }
       # allow admins to view orders
       { allow: groups, groups: ["Admin","Doctors"] }
+      #allow private
+      # { allow: private, operations: [read] }
+      #allow owner to cancel
+      # { allow: owner, ownerField: "owner", operations: [create, update, delete, read] },
     ]
   )
 #@key(name: "byUser", fields: ["user"]) 

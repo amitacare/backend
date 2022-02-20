@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { BookContext } from "../context/books";
 import { CartContext } from "../context/cart";
+import doc from './doctor.jpg'
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -19,11 +20,25 @@ const BookDetails = () => {
   const { image: url, name,experience,speciality, price } = book;
 
   return (
-    <section className="book-details">
-      <div className="detail-image">
-        <img src={url} alt="image" />
+    <section className="book-details" style={{marginTop:10,display:'flex',flexDirection:'row'}}>
+      <div className="detail-image" style={{width:'40%'}}>
+        {url?
+        <img src={url} alt="doctor profile" 
+        style={{
+          width:'100%',
+        }}
+        />
+        :
+        <>
+        <img src={doc}alt="doctor profile" 
+        style={{
+          width:'100%',
+        }}/>
+        
+        </>
+      }
       </div>
-      <div className="detail-description" style={{backgroundColor:'white',textAlign:'left'}}>
+      <div className="detail-description" style={{backgroundColor:'white',textAlign:'left',width:'40%'}}>
       
         <div style={{display:'flex',width:'100%',flexDirection:'row',backgroundColor:'yellow',padding:2}}>
           <div style={{backgroundColor:'white',textAlign:'justify',width:'100%',paddingLeft:20}}>

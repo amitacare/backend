@@ -127,6 +127,7 @@ export const createBookAppointment = /* GraphQL */ `
         createdAt
         updatedAt
         customer
+        owner
       }
       createdAt
       updatedAt
@@ -168,6 +169,7 @@ export const updateBookAppointment = /* GraphQL */ `
         createdAt
         updatedAt
         customer
+        owner
       }
       createdAt
       updatedAt
@@ -209,6 +211,7 @@ export const deleteBookAppointment = /* GraphQL */ `
         createdAt
         updatedAt
         customer
+        owner
       }
       createdAt
       updatedAt
@@ -240,6 +243,7 @@ export const createOrder = /* GraphQL */ `
       createdAt
       updatedAt
       customer
+      owner
     }
   }
 `;
@@ -267,6 +271,7 @@ export const updateOrder = /* GraphQL */ `
       createdAt
       updatedAt
       customer
+      owner
     }
   }
 `;
@@ -294,6 +299,7 @@ export const deleteOrder = /* GraphQL */ `
       createdAt
       updatedAt
       customer
+      owner
     }
   }
 `;

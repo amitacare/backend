@@ -4,7 +4,7 @@ import { Button } from '@aws-amplify/ui-react';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Header = (props) => {
-    console.log(props.user)
+    console.log(props)
     return (
         <header className="main-head" >
             <nav>
@@ -17,7 +17,7 @@ const Header = (props) => {
                     alt="logo"
                     ></img></a>
                     
-                    <h2 style= {{marginLeft:10,color:'black',fontSize:20,backgroundColor:'white',padding:10}}>Book an Appointment</h2>
+                    <h2 style= {{marginLeft:10,color:'black',fontSize:18,backgroundColor:'white',padding:10}}>Book an Appointment !</h2>
                     
                 </div>
                 <ul >
